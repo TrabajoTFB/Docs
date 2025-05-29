@@ -1,0 +1,136 @@
+﻿Documentación del proyecto
+
+    1. Introducción
+Libroly es una plataforma web innovadora para la compra y alquiler de libros usados o con pequeños daños, dirigida tanto a usuarios individuales como a librerías, con registro basado en ISBN y recomendaciones personalizadas impulsadas por IA. El proyecto nace para dar solución a la problemática de desperdicio y merma de libros en la cadena de distribución, promoviendo la economía circular y alineándose con los Objetivos de Desarrollo Sostenible (ODS).
+    2. Problema y motivación
+ En la industria editorial y de distribución de libros, una parte significativa del inventario sufre daños en portada o empaques durante el transporte, lo que impide su venta como nuevos y genera desperdicio. Esto tiene impacto económico y ambiental. Como trabajador en una distribuidora, he identificado esta problemática y quiero contribuir a darle una segunda vida útil a esos libros mediante un marketplace que facilite su uso, venta y alquiler.
+    3. Objetivos del proyecto
+Crear un marketplace que permita a usuarios y librerías vender y alquilar libros usados o con daños menores.
+Usar ISBN como identificador único para garantizar la fiabilidad del inventario.
+Incorporar inteligencia artificial para ofrecer recomendaciones personalizadas basadas en gustos y libros previamente adquiridos o alquilados.
+Fomentar la economía circular, el consumo responsable y la sostenibilidad. Facilitar la interacción y colaboración entre usuarios y librerías. Generar métricas para medir impacto ambiental y social.
+    4. Funcionalidades principales Registro y login con roles diferenciados (usuario estándar y librería).
+Gestión de catálogo de libros, con subida mediante ISBN y validación automática.
+Sistema de compra y alquiler con métodos de pago integrados. Algoritmo de recomendación IA personalizado. 
+Panel administrativo para librerías para gestionar su inventario y pedidos.  
+Sección de valoraciones y comentarios para los usuarios. Notificaciones y alertas (email o push).
+Estadísticas y métricas de impacto (por ejemplo, cuántos libros reutilizados, reducción estimada de desperdicio).
+    5. Especificaciones Técnicas Detalladas
+
+Frontend (React + TypeScript):
+- React v19.1.0 con TypeScript para desarrollo frontend
+- Vite v6.3.5 como bundler y servidor de desarrollo
+- TailwindCSS v3.4.1 para estilos y diseño responsive
+- Axios v1.9.0 para comunicación HTTP con el backend
+- React Router DOM v7.6.0 para enrutamiento
+- ESLint v9.25.0 para linting y calidad de código
+- Poppins como fuente principal
+- Tema personalizado con colores corporativos (coral-500, navy-900)
+
+Backend (Spring Boot):
+- Java Spring Boot para el backend
+- Spring Data JPA para persistencia de datos
+- Spring Security para autenticación
+- Spring Web para APIs REST
+- PostgreSQL como base de datos relacional
+- Maven para gestión de dependencias
+- JUnit para pruebas unitarias
+
+Arquitectura del Sistema:
+
+1. Estructura Frontend:
+```
+src/
+├── components/        # Componentes React reutilizables
+│   ├── layout/       # Componentes estructurales (NavBar, Footer)
+│   ├── sections/     # Secciones principales de páginas
+│   └── ui/          # Componentes de interfaz reutilizables
+├── hooks/            # Custom React hooks
+├── pages/            # Componentes de página principales
+├── services/         # Servicios de API y utilidades
+└── types/           # Definiciones de tipos TypeScript
+```
+
+2. Estructura Backend:
+```
+src/main/
+├── java/
+│   └── com.example.Libroly/
+│       ├── Controller/    # Controladores REST
+│       ├── Service/       # Lógica de negocio
+│       ├── Repository/    # Capa de acceso a datos
+│       ├── Entity/        # Modelos de datos
+│       └── DTOs/          # Objetos de transferencia de datos
+└── resources/
+    └── application.properties  # Configuración
+```
+
+3. APIs Principales:
+- Autenticación: /login, /user
+- Libros: /books, /book/random, /books/releases
+- Géneros: /genero/home
+- Usuarios: /users, /user/{id}
+
+4. Infraestructura y Despliegue:
+- Contenedores Docker para frontend y backend
+- Nginx como servidor web y proxy inverso
+- Configuración de CORS y seguridad
+- Variables de entorno para configuración
+- Puertos: Frontend (80), Backend (8080)
+
+5. Características de Seguridad:
+- Autenticación basada en JWT
+- Validación de datos en frontend y backend
+- Encriptación de contraseñas
+- Protección contra CSRF
+- Headers de seguridad configurados en Nginx
+
+6. Optimizaciones:
+- Lazy loading de componentes React
+- Minificación de assets
+- Caché de datos en frontend
+- Compresión Gzip en Nginx
+- Pooling de conexiones en base de datos
+
+    6. Arquitectura técnica
+La aplicación sigue una arquitectura de microservicios:
+
+Frontend:
+- Aplicación SPA (Single Page Application) construida con React y TypeScript
+- Gestión de estado con Context API y hooks personalizados
+- Componentes modulares organizados por funcionalidad
+- Sistema de rutas para navegación
+- Integración con API REST del backend
+
+Backend:
+- API REST desarrollada con Spring Boot
+- Arquitectura en capas (Controller, Service, Repository)
+- Modelo de datos relacional en PostgreSQL
+- Autenticación mediante JWT (JSON Web Tokens)
+- Documentación de API con Swagger/OpenAPI
+
+Infraestructura:
+- Contenedores Docker para cada servicio
+- Orquestación con docker-compose
+- Reverse proxy con Nginx
+- Base de datos PostgreSQL containerizada
+
+    7. Metodología de trabajo en equipo Para garantizar el éxito y eficiencia en el desarrollo, implementaremos metodologías ágiles:
+SCRUM: Sprints quincenales, reuniones diarias (daily stand-up), revisión y retrospectiva.
+Kanban: Gestión visual del flujo de tareas mediante tablero.
+Uso de herramientas colaborativas: Jira / Trello / Asana para seguimiento de tareas.
+Comunicación continua vía Slack / Microsoft Teams.
+Repositorio compartido con control de versiones y revisiones de código (pull requests).
+
+    8. Impacto social y alineación con los ODS 
+Apoya el ODS 12 (Producción y consumo responsables) y ODS 13 (Acción por el clima).
+Reduce el desperdicio y fomenta la reutilización de libros.
+Mejora el acceso a la cultura y el conocimiento.
+Promueve la colaboración entre empresas y usuarios.
+
+    9. Estado actual y roadmap Idea conceptual y análisis de problema completados.
+Diseño inicial y prototipo de interfaz en desarrollo.
+Próximos pasos: desarrollo backend, integración IA, pruebas, despliegue.
+    10. Conclusiones 
+Libroly es un proyecto innovador con impacto social y ambiental, que combina tecnología avanzada con un propósito sostenible. Buscamos colaboración, apoyo y mentoría para convertirlo en una realidad.
+
